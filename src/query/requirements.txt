@@ -1,0 +1,6 @@
+altair
+protobuf
+pandas
+streamlit
+azure-search-documents
+python-dotenv
