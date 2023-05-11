@@ -1,0 +1,68 @@
+{
+    "name": "documents-index",
+    "fields": [
+        {
+            "name": "id",
+            "type": "Edm.String",
+            "key": true,
+            "filterable": true
+        },
+        {
+            "name": "title",
+            "type": "Edm.String",
+            "searchable": true,
+            "retrievable": true
+        },
+        {
+            "name": "content",
+            "type": "Edm.String",
+            "searchable": true,
+            "retrievable": true
+        },
+        {
+            "name": "path",
+            "type": "Edm.String",
+            "searchable": false,
+            "retrievable": true
+        },
+        {
+            "name": "contentVector",
+            "type": "Collection(Edm.Single)",
+            "searchable": true,
+            "retrievable": true,
+            "dimensions": 1536,
+            "vectorSearchConfiguration": "my-vector-config"
+        }
+    ],
+    "vectorSearch": {
+        "algorithmConfigurations": [
+            {
+                "name": "my-vector-config",
+                //"algorithm": "hnsw",
+                "kind": "hnsw",
+                "hnswParameters": {
+                    "m": 4,
+                    "efConstruction": 400,
+                    "metric": "cosine"
+                }
+            }
+        ]
+    },
+    "semantic": {
+        "configurations": [
+            {
+                "name": "my-semantic-config",
+                "prioritizedFields": {
+                    "titleField": {
+                        "fieldName": "title"
+                    },
+                    "prioritizedContentFields": [
+                        {
+                            "fieldName": "content"
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+}
