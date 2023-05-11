@@ -35,7 +35,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pwd
+          cd src/customskill
           pip install -r requirements.txt
         
       # Optional: Add step to run tests here
