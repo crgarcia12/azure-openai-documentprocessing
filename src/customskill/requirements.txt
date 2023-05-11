@@ -3,5 +3,5 @@
 # Manually managing azure-functions-worker may cause unexpected issues
 
 azure-functions
-requests
-openai
+requests==2.30.0
+openai[datalib]==0.27.6
