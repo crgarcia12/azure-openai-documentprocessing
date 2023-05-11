@@ -29,11 +29,14 @@ jobs:
       - name: Create and start virtual environment
         run: |
           cd src/customskill
+          pwd
           python -m venv venv
           source venv/bin/activate
 
       - name: Install dependencies
-        run: pip install -r requirements.txt
+        run: |
+          pwd
+          pip install -r requirements.txt
         
       # Optional: Add step to run tests here
 
