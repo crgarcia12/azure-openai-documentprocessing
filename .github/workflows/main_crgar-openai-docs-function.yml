@@ -17,6 +17,10 @@ env:
 jobs:
   build:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
+        working-directory: ./src/customskill
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
@@ -28,14 +32,12 @@ jobs:
 
       - name: Create and start virtual environment
         run: |
-          cd src/customskill
           pwd
           python -m venv venv
           source venv/bin/activate
 
       - name: Install dependencies
         run: |
-          cd src/customskill
           pip install -r requirements.txt
         
       # Optional: Add step to run tests here
