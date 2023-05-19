@@ -47,7 +47,7 @@ jobs:
         with:
           name: python-app
           path: |
-            . 
+            ./src/customskill
             !venv/
 
   deploy:
